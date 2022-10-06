@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Atributtes General")]
+    [HideInInspector] public static PlayerController instance;
+
     [Header("Atributtes Hands")]
     [SerializeField] protected Hands handsOne;
     [SerializeField] protected Hands handsTwo;
@@ -13,8 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected GameObject gameObjectItem;
 
     [Header("Inputs")]
+    [SerializeField] public bool inputButtonDownE;
     [SerializeField] public bool inputButtonE;
     [SerializeField] public bool inputButtonG;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -51,7 +60,7 @@ public class PlayerController : MonoBehaviour
     {
 
         /* Aqui esta o controle de pegar os itens pickup. */
-        if(inputButtonE && proximityItem)
+        if(inputButtonDownE && proximityItem)
         {
             Pickup pickup = gameObjectItem.GetComponent<Pickup>();
             if(pickup.useTwoHands && !handsOne.occupied && !handsTwo.occupied)
@@ -84,7 +93,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        /* Aqui esta o controle de largr os itens pickup. */
+        /* Aqui esta o controle de largar os itens pickup. */
         if(inputButtonG)
         {
             if(handsOne.occupied)
@@ -108,7 +117,8 @@ public class PlayerController : MonoBehaviour
     protected void ControllerInputs()
     {
         /* Todos os inputs relacionados a mecanica do jogador irão ser adicionados aqui. */
-        inputButtonE = Input.GetKeyDown(KeyCode.E) ? inputButtonE = true : inputButtonE = false;
+        inputButtonDownE = Input.GetKeyDown(KeyCode.E) ? inputButtonDownE = true : inputButtonDownE = false;
+        inputButtonE = Input.GetKey(KeyCode.E) ? inputButtonE = true : inputButtonE = false;
         inputButtonG = Input.GetKeyDown(KeyCode.G) ? inputButtonG = true : inputButtonG = false;
     }
 }

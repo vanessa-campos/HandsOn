@@ -19,13 +19,13 @@ public class Pickup : MonoBehaviour
 
     public virtual void FunctionPickMe(GameObject obj)
     {
-        gameObject.SetActive(false);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
         transform.parent = obj.transform;
     }
 
     public virtual void FunctionLeftMe()
     {
-        gameObject.SetActive(true);
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
         transform.parent = null;
     }
 }
