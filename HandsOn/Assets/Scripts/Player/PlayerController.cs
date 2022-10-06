@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Inputs")]
     [SerializeField] public bool inputButtonE;
+    [SerializeField] public bool inputButtonG;
 
     void Start()
     {
@@ -58,17 +59,43 @@ public class PlayerController : MonoBehaviour
                         handsTwo.nameItem = "Brick";
                         handsOne.occupied = true;
                         handsTwo.occupied = true;
-                        brick.FunctionDestroyMe();
+                        handsOne.gameObjectItem = brick.gameObject;
+                        handsTwo.gameObjectItem = brick.gameObject;
+                        brick.FunctionPickMe(gameObject);
                     }
                     
                 break;
             }
+        }
+
+        if(inputButtonG)
+        {
+            if(handsOne.occupied)
+            {
+                handsOne.nameItem = null;
+                handsOne.occupied = false;
+                handsOne.gameObjectItem.GetComponent<Brick>().FunctionLeftMe();
+                handsOne.gameObjectItem = null;
+            }
+
+            if(handsTwo.occupied)
+            {
+                handsTwo.nameItem = null;
+                handsTwo.occupied = false;
+                handsTwo.gameObjectItem.GetComponent<Brick>().FunctionLeftMe();
+                handsTwo.gameObjectItem = null;
+            }
+
+
+            
+            
         }
     }
 
     protected void ControllerInputs()
     {
         inputButtonE = Input.GetKeyDown(KeyCode.E) ? inputButtonE = true : inputButtonE = false;
+        inputButtonG = Input.GetKeyDown(KeyCode.G) ? inputButtonG = true : inputButtonG = false;
     }
 }
 
@@ -77,6 +104,7 @@ public class Hands
 {
     public string nameItem;
     public bool occupied;
+    public GameObject gameObjectItem;
 }
 
 

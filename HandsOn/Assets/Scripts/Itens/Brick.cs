@@ -15,8 +15,15 @@ public class Brick : MonoBehaviour
         
     }
 
-    public void FunctionDestroyMe()
+    public void FunctionPickMe(GameObject obj)
     {
-        Destroy(gameObject, 0);
+        gameObject.SetActive(false);
+        transform.parent = obj.transform;
+    }
+
+    public void FunctionLeftMe()
+    {
+        gameObject.SetActive(true);
+        transform.parent = null;
     }
 }
