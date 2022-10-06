@@ -15,13 +15,13 @@ public class Brick : MonoBehaviour
         
     }
 
-    public void FunctionPickMe(GameObject obj)
+    public virtual void FunctionPickMe(GameObject obj)
     {
         gameObject.SetActive(false);
         transform.parent = obj.transform;
     }
 
-    public void FunctionLeftMe()
+    public virtual void FunctionLeftMe()
     {
         gameObject.SetActive(true);
         transform.parent = null;
