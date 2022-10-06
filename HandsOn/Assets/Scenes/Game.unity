@@ -232,9 +232,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 275831205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a610e999aeb992458009809dd97b8a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8823f742ec99999498b9eb11435953fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTwoHands: 1
 --- !u!1 &464288857
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
     nameItem: 
     occupied: 0
     gameObjectItem: {fileID: 0}
-  nameItem: 
+  proximityItem: 0
   gameObjectItem: {fileID: 0}
   inputButtonE: 0
   inputButtonG: 0
@@ -502,9 +503,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 662090669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3067545a9d86f14c9696d2de80f3f28, type: 3}
+  m_Script: {fileID: 11500000, guid: 8823f742ec99999498b9eb11435953fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTwoHands: 1
 --- !u!58 &662090671
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -614,9 +616,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1887113153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0db7b7a1d7c91584daf6a376f3422320, type: 3}
+  m_Script: {fileID: 11500000, guid: 8823f742ec99999498b9eb11435953fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTwoHands: 1
 --- !u!58 &1887113155
 CircleCollider2D:
   m_ObjectHideFlags: 0
