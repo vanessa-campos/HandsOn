@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject caixaDeDialogo;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(caixaDeDialogo.activeSelf)
+                caixaDeDialogo.SetActive(false);
+            else
+                caixaDeDialogo.SetActive(true);
+        }
     }
 }
