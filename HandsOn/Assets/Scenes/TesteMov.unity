@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 1905232472}
   - component: {fileID: 1905232471}
   - component: {fileID: 1905232470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,6 +487,18 @@ PrefabInstance:
       propertyPath: dashForce
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228184, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: dashSpeed
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228184, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: dashLayerMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228185, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
     - target: {fileID: 5293420405444228187, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
       propertyPath: m_Name
       value: Player
