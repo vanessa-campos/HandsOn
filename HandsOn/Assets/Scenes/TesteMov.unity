@@ -487,14 +487,6 @@ PrefabInstance:
       propertyPath: dashForce
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 5293420405444228184, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
-      propertyPath: dashSpeed
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 5293420405444228184, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
-      propertyPath: dashLayerMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5293420405444228185, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
       propertyPath: m_Sprite
       value: 
