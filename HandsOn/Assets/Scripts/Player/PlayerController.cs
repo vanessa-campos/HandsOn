@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
 		rb.velocity = moveDir * moveSpeed;
 		// Dash
 		if(isdashing) {	
-			Vector3 dashPos = transform.position + moveDir * dashSpeed;
+			// Vector3 dashPos = transform.position + moveDir * dashSpeed;
+			Vector3 dashPos = rb.AddForce(moveDir * dashSpeed, ForceMode2D.Force);
 			RaycastHit2D ray = Physics2D.Raycast(transform.position, moveDir, dashSpeed, dashLayerMask);
 			if(ray.collider != null){ 
 				dashPos = ray.point;

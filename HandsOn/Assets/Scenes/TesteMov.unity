@@ -487,17 +487,37 @@ PrefabInstance:
       propertyPath: dashForce
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 5293420405444228185, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
     - target: {fileID: 5293420405444228187, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228188, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_Size.x
+      value: 5.1831245
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228188, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_Size.y
+      value: 3.900299
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228188, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.027887821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228188, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.044620037
+      objectReference: {fileID: 0}
     - target: {fileID: 5293420405444228190, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228190, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293420405444228190, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5293420405444228190, guid: 059128f534e2a8543b0796dec502bab1, type: 3}
       propertyPath: m_LocalPosition.x
