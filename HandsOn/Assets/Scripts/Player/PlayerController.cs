@@ -87,14 +87,14 @@ public class PlayerController : MonoBehaviour
                                 GameObject[] items = GameObject.FindGameObjectsWithTag("item");
                                 foreach (GameObject item in items)
                                 {
-                                    if (Mathf.Sqrt(Mathf.Pow(item.transform.position.x - tilemap.WorldToCell(mousePosicao).x,2f) + Mathf.Pow(item.transform.position.y - tilemap.WorldToCell(mousePosicao).y,2f)) < 3)
+                                    if (Mathf.Sqrt(Mathf.Pow(item.transform.position.x - tilemap.WorldToCell(mousePosicao).x,2f) + Mathf.Pow(item.transform.position.y - tilemap.WorldToCell(mousePosicao).y,2f)) < 2.5f)
                                     {
-                                        if (item.name == "brick")
+                                        if (item.name.Contains("brick"))
                                         {
                                             if (tijolo > 0)
                                                 tijolo--;
                                         }
-                                        if (item.name == "Concrete")
+                                        if (item.name.Contains("Concrete"))
                                         {
                                             if (concreto > 0)
                                                concreto--;
@@ -112,9 +112,9 @@ public class PlayerController : MonoBehaviour
                                 GameObject[] items = GameObject.FindGameObjectsWithTag("item");
                                 foreach (GameObject item in items)
                                 {
-                                    if (Mathf.Sqrt(Mathf.Pow(item.transform.position.x - tilemap.WorldToCell(mousePosicao).x,2f) + Mathf.Pow(item.transform.position.y - tilemap.WorldToCell(mousePosicao).y,2f)) < 3)
+                                    if (Mathf.Sqrt(Mathf.Pow(item.transform.position.x - tilemap.WorldToCell(mousePosicao).x,2f) + Mathf.Pow(item.transform.position.y - tilemap.WorldToCell(mousePosicao).y,2f)) < 2.5f)
                                     {
-                                        if (item.name == "Concrete")
+                                        if (item.name.Contains("Concrete"))
                                         {
                                             if (concreto > 0)
                                                     concreto--;
