@@ -4,15 +4,133 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("Atributtes General")]
+    [HideInInspector] public static PlayerController instance;
+
+    [Header("Atributtes Hands")]
+    [SerializeField] protected Hands handsOne;
+    [SerializeField] protected Hands handsTwo;
+
+    [Header("Atributtes Proximity Item")]
+    [SerializeField] protected bool proximityItem;
+    [SerializeField] protected GameObject gameObjectItem;
+
+    [Header("Inputs")]
+    [SerializeField] public bool inputButtonDownE;
+    [SerializeField] public bool inputButtonE;
+    [SerializeField] public bool inputButtonG;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        ControllerInputs();
+        ControllerHands();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Armazena informações sobre os pickup.
+        if(other.gameObject.CompareTag("Item"))
+        {
+            proximityItem = true;
+            gameObjectItem = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        // Retira informações sobre os pickup.
+        if(other.gameObject.CompareTag("Item"))
+        {
+            proximityItem = false;
+            gameObjectItem = null;
+        }
+    }
+
+    protected void ControllerHands()
+    {
+
+        /* Aqui esta o controle de pegar os itens pickup. */
+        if(inputButtonDownE && proximityItem)
+        {
+            Pickup pickup = gameObjectItem.GetComponent<Pickup>();
+            if(pickup.useTwoHands && !handsOne.occupied && !handsTwo.occupied)
+            {
+                handsOne.nameItem = pickup.gameObject.name;
+                handsTwo.nameItem = pickup.gameObject.name;
+                handsOne.occupied = true;
+                handsTwo.occupied = true;
+                handsOne.gameObjectItem = pickup.gameObject;
+                handsTwo.gameObjectItem = pickup.gameObject;
+                pickup.FunctionPickMe(gameObject);
+            }else 
+            {
+                if(!pickup.useTwoHands && !handsOne.occupied)
+                {
+                    handsOne.nameItem = pickup.gameObject.name;
+                    handsOne.occupied = true;
+                    handsOne.gameObjectItem = pickup.gameObject;
+                    pickup.FunctionPickMe(gameObject);
+                }else 
+                {
+                    if(!pickup.useTwoHands && !handsTwo.occupied)
+                    {
+                        handsTwo.nameItem = pickup.gameObject.name;
+                        handsTwo.occupied = true;
+                        handsTwo.gameObjectItem = pickup.gameObject;
+                        pickup.FunctionPickMe(gameObject);
+                    }
+                }
+            }
+        }
+
+        /* Aqui esta o controle de largar os itens pickup. */
+        if(inputButtonG)
+        {
+            if(handsOne.occupied)
+            {
+                handsOne.gameObjectItem.GetComponent<Pickup>().FunctionLeftMe();
+                handsOne.nameItem = null;
+                handsOne.occupied = false;
+                handsOne.gameObjectItem = null;
+            }
+
+            if(handsTwo.occupied)
+            {
+                handsTwo.gameObjectItem.GetComponent<Pickup>().FunctionLeftMe();
+                handsTwo.nameItem = null;
+                handsTwo.occupied = false;
+                handsTwo.gameObjectItem = null;
+            }
+        }
+    }
+
+    protected void ControllerInputs()
+    {
+        /* Todos os inputs relacionados a mecanica do jogador irão ser adicionados aqui. */
+        inputButtonDownE = Input.GetKeyDown(KeyCode.E) ? inputButtonDownE = true : inputButtonDownE = false;
+        inputButtonE = Input.GetKey(KeyCode.E) ? inputButtonE = true : inputButtonE = false;
+        inputButtonG = Input.GetKeyDown(KeyCode.G) ? inputButtonG = true : inputButtonG = false;
     }
 }
+
+[System.Serializable]
+public class Hands
+{
+    public string nameItem;
+    public bool occupied;
+    public GameObject gameObjectItem;
+}
+
+
+
+
